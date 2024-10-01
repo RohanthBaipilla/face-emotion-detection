@@ -1,0 +1,140 @@
+/* General styles for the whole application */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #ADD8E6, #6BB7EC, #1E90FF);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the main container */
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Styles for the header section */
+.App-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%; /* Set to 90% for responsiveness */
+  max-width: 640px; /* Keep max width for larger screens */
+  aspect-ratio: 4 / 3; /* Maintains the 4:3 ratio for webcams */
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures content stays inside the box */
+}
+
+/* Styles for the webcam component */
+.Webcam {
+  width: 100%; /* Full width of the parent container */
+  height: 100%; /* Full height of the parent container */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Styles for the overlay canvas */
+canvas#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Styles for the prediction boxes */
+.prediction-box {
+  position: absolute;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid red;
+  color: red;
+  background-color: rgba(255, 255, 255, 0);
+  pointer-events: none;
+}
+
+/* Container for the toggle button */
+.button-container {
+  margin-top: 10px;
+}
+
+/* Styles for the toggle button */
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+/* Placeholder for when webcam is not accessible */
+.no-webcam-message {
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Title styling */
+.App-header h1 {
+  margin-top: -58px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+  .App-header {
+    width: 100%; /* Full width on smaller devices */
+    height: auto; /* Height adjusts based on content */
+  }
+
+  .Webcam {
+    height: auto; /* Adjusts to maintain aspect ratio */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    width: 100%;
+    height: auto; /* Adjust for smaller devices */
+  }
+
+  .Webcam {
+    height: auto;
+  }
+
+  .button {
+    width: 100%;
+    padding: 12px;
+  }
+}
